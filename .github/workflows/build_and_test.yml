@@ -38,5 +38,5 @@ jobs:
       run: |
         conda create -n test_env python=3.8.13 libgdal=3.5.2 -c conda-forge -c defaults -y
         conda activate test_env
-        PIP_NO_BINARY=rasterio pip install dist/*.whl
+        PIP_NO_BINARY=rasterio pip install .
         pytest --compare
