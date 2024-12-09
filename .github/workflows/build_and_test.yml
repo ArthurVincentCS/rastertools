@@ -1,0 +1,42 @@
+name: rastertools
+
+on:
+  push:
+    branches: [ "add_CI" ]
+  pull_request:
+    branches: [ "add_CI" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: setup python 3.8
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.8.13"
+    - name: Setup Miniconda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        python-version: 3.8.13
+        auto-activate-base: false
+
+    - name: Create Conda environment
+      shell: bash -l {0}
+      run: |
+        conda create -n build_wheel python=3.8.13 build twine libgdal=3.5.2 -c conda-forge -c defaults -y
+        conda activate build_wheel
+        python -m build
+
+    - name: Test with pytest
+      shell: bash -l {0}
+      run: |
+        conda create -n test_env python=3.8.13 libgdal=3.5.2 -c conda-forge -c defaults -y
+        conda activate test_env
+        PIP_NO_BINARY=rasterio pip install dist/*.whl
+        pytest --compare
