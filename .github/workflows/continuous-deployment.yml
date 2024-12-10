@@ -4,7 +4,8 @@ on:
   workflow_run:
     workflows: [ContinuousIntegration]
     types: [completed]
-
+    branches:
+      - add_CI
 permissions:
   contents: write
 
