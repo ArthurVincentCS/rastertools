@@ -3,18 +3,15 @@ name: Continuous Deployment
 on:
   workflow_run:
     workflows: ["Continuous Integration"]
-    types:
-      - completed
+    types: [completed]
 
 permissions:
   contents: write
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-
     steps:
     - uses: actions/checkout@v4
     - name: Setup Python 3.8
