@@ -4,6 +4,14 @@ on:
   workflow_run:
     workflows: ["Continuous Integration"]
     types: [completed]
+  push:
+    branches:
+      - "main"
+      - "add_CI"
+  pull_request:
+    branches:
+      - "main"
+      - "add_CI"
 
 permissions:
   contents: write
