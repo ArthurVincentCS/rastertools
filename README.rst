@@ -2,7 +2,7 @@
 Raster tools
 ============
 
-This project provides a command line named **rastertools** that enables various calculation tools:
+This project provides a command line named **georastertools** that enables various calculation tools:
 
 
 - the calculation of radiometric indices on satellite images
@@ -10,7 +10,7 @@ This project provides a command line named **rastertools** that enables various 
 - the calculation of zonal statistics of the bands of a raster, that is to say statistics such as min, max, average, etc.
   on subareas (defined by a vector file) of the area of interest.
   
-The **rastertools** project also aims to make the handling of the following image products transparent:
+The **georastertools** project also aims to make the handling of the following image products transparent:
 
 - Sentinel-2 L1C PEPS (https://peps.cnes.fr/rocket/#/search)
 - Sentinel-2 L2A PEPS (https://peps.cnes.fr/rocket/#/search)
@@ -21,7 +21,7 @@ The **rastertools** project also aims to make the handling of the following imag
 It is thus possible to input files in the command line in any of the formats above. 
 It is also possible to specify your own product types by providing a JSON file as a parameter of the command line (cf. docs/usage.rst)
 
-Finally, **rastertools** offers an API for calling these different tools in Python and for extending its capabilities, for example by defining new radiometric indices.
+Finally, **georastertools** offers an API for calling these different tools in Python and for extending its capabilities, for example by defining new radiometric indices.
 
 Installation
 ============
@@ -33,7 +33,7 @@ Create a conda environment by typing the following:
   conda env create -f environment.yml
   conda env update -f env_update.yml
 
-The following dependencies will be installed in the ``rastertools`` environment:
+The following dependencies will be installed in the ``georastertools`` environment:
 
 - pyscaffold
 - geopandas
@@ -42,17 +42,17 @@ The following dependencies will be installed in the ``rastertools`` environment:
 - rasterio
 - tqdm
 
-Install ``rastertools`` in the conda environment by typing the following:
+Install ``georastertools`` in the conda environment by typing the following:
 
 .. code-block:: bash
 
-  conda activate rastertools
+  conda activate georastertools
   pip install -e .
 
 .. note::
 
   Note: Installing in a *virtualenv* does not work properly for this project. For unexplained reasons, 
-  the VRTs that are created in memory by rastertools to handle image products are not properly managed 
+  the VRTs that are created in memory by georastertools to handle image products are not properly managed
   with an installation in a virtualenv.
 
 For more details, including installation as a Docker or Singularity image, please refer to the documentation. : `Installation <docs/install.rst>`_
@@ -61,14 +61,14 @@ For more details, including installation as a Docker or Singularity image, pleas
 Usage
 =====
 
-rastertools
+georastertools
 ^^^^^^^^^^^
-The rastertools command line is the high-level command for activating the various tools.
+The georastertools command line is the high-level command for activating the various tools.
 
 .. code-block:: console
 
-  $ rastertools --help
-  usage: rastertools [-h] [-t RASTERTYPE] [--version] [-v] [-vv]
+  $ georastertools --help
+  usage: georastertools [-h] [-t RASTERTYPE] [--version] [-v] [-vv]
                      {filter,fi,radioindice,ri,speed,sp,svf,hillshade,hs,zonalstats,zs,tiling,ti}
                      ...
   
@@ -93,7 +93,7 @@ The rastertools command line is the high-level command for activating the variou
       zonalstats (zs)     Compute zonal statistics
       tiling (ti)         Generate image tiles
 
-Calling rastertools returns the following exit codes:
+Calling georastertools returns the following exit codes:
 
 .. code-block:: console
 

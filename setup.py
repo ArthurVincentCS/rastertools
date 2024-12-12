@@ -11,7 +11,7 @@ if __name__ == "__main__":
               keywords='',
               author=u"Olivier Queyrut",
               author_email="",
-              url="https://github.com/CNES/rastertools",
+              url="https://github.com/CNES/georastertools",
               packages=find_packages(exclude=['tests']),
               include_package_data=True,
               zip_safe=False,
