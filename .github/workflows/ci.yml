@@ -51,5 +51,5 @@ jobs:
         conda create -n deploy_env python=3.8.13 libgdal=3.5.2 build twine -c conda-forge -y
         conda activate deploy_env
         python -m build
-        echo "test 2"
+        echo "test 3"
         twine upload --repository testpypi dist/*
