@@ -1,2 +1,0 @@
-[rasterio.rio_plugins]
-georastertools = eolab.georastertools.main:georastertools
