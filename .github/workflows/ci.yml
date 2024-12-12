@@ -52,4 +52,4 @@ jobs:
         conda activate deploy_env
         python -m build
         echo "test 4"
-        twine upload --repository testpypi dist/*
+        twine upload --repository testpypi dist/* --verbose
