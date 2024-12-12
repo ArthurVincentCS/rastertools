@@ -12,6 +12,7 @@ env:
 
 jobs:
   test:
+    if: github.event_name.pull_request.draft == true
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -31,26 +32,3 @@ jobs:
         conda activate test_env
         PIP_NO_BINARY=rasterio pip install .
         pytest --compare
-
-  deploy:
-    needs: test
-    if: github.ref == 'refs/heads/add_CI' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Setup Python 3.8
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.8.13"
-    - name: Setup Miniconda
-      uses: conda-incubator/setup-miniconda@v2
-      with:
-        python-version: 3.8.13
-        auto-activate-base: false
-    - name: Deploy to PyPI
-      shell: bash -l {0}
-      run: |
-        conda create -n deploy_env python=3.8.13 libgdal=3.5.2 build twine -c conda-forge -y
-        conda activate deploy_env
-        python -m build
-        echo "test"
