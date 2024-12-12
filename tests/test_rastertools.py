@@ -7,7 +7,7 @@ import os
 from click.testing import CliRunner
 from pathlib import Path
 
-from eolab.georastertools import rastertools
+from eolab.georastertools import georastertools
 from eolab.georastertools.product import RasterType
 
 from . import utils4test
@@ -99,7 +99,7 @@ class TestCase:
             check_logs = False
 
         try:
-            rastertools(self.args)
+            georastertools(self.args)
 
         except SystemExit as wrapped_exception:
             if check_sys_exit:
