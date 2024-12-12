@@ -214,28 +214,28 @@ def georastertools(ctx, rastertype : str, max_workers : int, keep_vrt : bool, ve
 
 
 # Register subcommands from other modules
-rastertools.add_command(filter, name = "fi")
-rastertools.add_command(filter, name = "filter")
-rastertools.add_command(hillshade, name = "hs")
-rastertools.add_command(hillshade, name = "hillshade")
-rastertools.add_command(radioindice, name = "ri")
-rastertools.add_command(radioindice, name = "radioindice")
-rastertools.add_command(speed, name = "sp")
-rastertools.add_command(speed, name = "speed")
-rastertools.add_command(svf, name = "svf")
-rastertools.add_command(tiling, name = "ti")
-rastertools.add_command(tiling, name = "tiling")
-rastertools.add_command(timeseries, name = "ts")
-rastertools.add_command(timeseries, name = "timeseries")
-rastertools.add_command(zonalstats, name = "zs")
-rastertools.add_command(zonalstats, name = "zonalstats")
+georastertools.add_command(filter, name = "fi")
+georastertools.add_command(filter, name = "filter")
+georastertools.add_command(hillshade, name = "hs")
+georastertools.add_command(hillshade, name = "hillshade")
+georastertools.add_command(radioindice, name = "ri")
+georastertools.add_command(radioindice, name = "radioindice")
+georastertools.add_command(speed, name = "sp")
+georastertools.add_command(speed, name = "speed")
+georastertools.add_command(svf, name = "svf")
+georastertools.add_command(tiling, name = "ti")
+georastertools.add_command(tiling, name = "tiling")
+georastertools.add_command(timeseries, name = "ts")
+georastertools.add_command(timeseries, name = "timeseries")
+georastertools.add_command(zonalstats, name = "zs")
+georastertools.add_command(zonalstats, name = "zonalstats")
 
 
 def run(*args, **kwargs):
     """
     Entry point for console_scripts
     """
-    rastertools(*args, **kwargs)
+    georastertools(*args, **kwargs)
 
 
 if __name__ == "__main__":
