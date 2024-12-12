@@ -8,8 +8,8 @@ from datetime import datetime
 
 import rasterio
 
-from eolab.geo-rastertools.product import RasterType, BandChannel
-from eolab.geo-rastertools.product import RasterProduct
+from eolab.georastertools.product import RasterType, BandChannel
+from eolab.georastertools.product import RasterProduct
 from . import utils4test
 
 __author__ = "Olivier Queyrut"
