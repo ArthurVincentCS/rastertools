@@ -211,7 +211,7 @@
 				}
 			],
 			"date_format": "%Y%m%d-%H%M%S",
-			"maskfunc": "eolab.rastertools.product.s2_maja_mask"
+			"maskfunc": "eolab.georastertools.product.s2_maja_mask"
 		},
 		{
 			"name": "S2_L3A_THEIA",
