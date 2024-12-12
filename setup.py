@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 if __name__ == "__main__":
     try:
-        setup(name='rastertools',
+        setup(name='geo-rastertools',
               version="0.1.0",
               description=u"Collection of tools for raster data",
               long_description="",
