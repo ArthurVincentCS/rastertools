@@ -5,8 +5,9 @@ if __name__ == "__main__":
     try:
         setup(name='georastertools',
               version="0.1.0",
-              description=u"Collection of tools for raster data",
-              long_description="",
+              description="Collection of tools for raster data",
+              long_description="Compute radiometric indices and zonal statistics on rasters",
+              long_description_content_type="text/x-rst",
               classifiers=[],
               keywords='',
               author=u"Olivier Queyrut",
