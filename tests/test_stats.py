@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from eolab.rastertools.processing import stats, vector
+from eolab.geo-rastertools.processing import stats, vector
 
 from . import utils4test
 

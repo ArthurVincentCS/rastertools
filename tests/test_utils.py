@@ -3,8 +3,8 @@
 
 from rasterio.windows import Window
 
-from eolab.rastertools import utils
-from eolab.rastertools.processing import sliding
+from eolab.geo-rastertools import utils
+from eolab.geo-rastertools.processing import sliding
 
 __author__ = "Olivier Queyrut"
 __copyright__ = "Copyright 2019, CNES"

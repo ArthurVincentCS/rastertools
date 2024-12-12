@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 if __name__ == "__main__":
     try:
-        setup(name='geo-rastertools',
+        setup(name='geo-geo-rastertools',
               version="0.1.0",
               description=u"Collection of tools for raster data",
               long_description="",
@@ -36,7 +36,7 @@ if __name__ == "__main__":
               ],
               entry_points="""
                 [rasterio.rio_plugins]
-                rastertools=eolab.rastertools.main:rastertools
+                geo-rastertools=eolab.geo-rastertools.main:geo-rastertools
                 """,
               python_requires='==3.8.13',
               use_scm_version={"version_scheme": "no-guess-dev"})
