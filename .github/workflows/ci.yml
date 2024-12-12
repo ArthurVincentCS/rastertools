@@ -5,7 +5,10 @@ on:
     branches:
       - "main"
       - "add_CI"
-
+  pull_request:
+    branches:
+      - "main"
+      - "add_CI"
 permissions:
   contents: read
 
