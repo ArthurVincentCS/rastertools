@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 if __name__ == "__main__":
     try:
         setup(name='georastertools',
-              version="0.1.1",
+              version="0.1.2",
               description="Collection of tools for raster data",
               long_description="Compute radiometric indices and zonal statistics on rasters",
               long_description_content_type="text/x-rst",
