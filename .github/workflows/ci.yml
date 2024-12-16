@@ -42,14 +42,15 @@ jobs:
       with:
         python-version: 3.8.13
         auto-activate-base: false
-    - name: Deploy to PyPI
+    - name: Build package
       shell: bash -l {0}
-      env:
-        # TWINE_USERNAME: ${{ secrets.TEST_PYPI_USERNAME }}
-        TWINE_USERNAME: __token__
-        TWINE_PASSWORD: ${{ secrets.TEST_PYPI_PASSWORD }}
       run: |
         conda create -n deploy_env python=3.8.13 libgdal=3.5.2 build twine -c conda-forge -y
         conda activate deploy_env
         python -m build
-        twine upload --repository testpypi dist/* --verbose
+    - name: Publish package
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.TEST_PYPI_PASSWORD }}
+        repository-url: https://test.pypi.org
