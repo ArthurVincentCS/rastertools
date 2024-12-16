@@ -31,31 +31,9 @@ Create a conda environment by typing the following:
 .. code-block:: bash
 
   conda env create -n rastertools
+  conda activate
   conda install python=3.8.13 libgdal
-  pip install
-
-
-The following dependencies will be installed in the ``georastertools`` environment:
-
-- pyscaffold
-- geopandas
-- scipy
-- gdal
-- rasterio
-- tqdm
-
-Install ``georastertools`` in the conda environment by typing the following:
-
-.. code-block:: bash
-
-  conda activate georastertools
-  pip install -e .
-
-.. note::
-
-  Note: Installing in a *virtualenv* does not work properly for this project. For unexplained reasons, 
-  the VRTs that are created in memory by georastertools to handle image products are not properly managed
-  with an installation in a virtualenv.
+  pip install georastertools --no-binary rasterio
 
 For more details, including installation as a Docker or Singularity image, please refer to the documentation. : `Installation <docs/install.rst>`_
 
@@ -69,31 +47,62 @@ The georastertools command line is the high-level command for activating the var
 
 .. code-block:: console
 
-  $ georastertools --help
-  usage: georastertools [-h] [-t RASTERTYPE] [--version] [-v] [-vv]
-                     {filter,fi,radioindice,ri,speed,sp,svf,hillshade,hs,zonalstats,zs,tiling,ti}
-                     ...
-  
-  Collection of tools on raster data
-  
-  optional arguments:
-    -h, --help            show this help message and exit
-    -t RASTERTYPE, --rastertype RASTERTYPE
-                          JSON file defining additional raster types of input
-                          files
-    --version             show program's version number and exit
-    -v, --verbose         set loglevel to INFO
-    -vv, --very-verbose   set loglevel to DEBUG
-  
-  Commands:
-    {filter,fi,radioindice,ri,speed,sp,svf,hillshade,hs,zonalstats,zs,tiling,ti}
-      filter (fi)         Apply a filter to a set of images
-      radioindice (ri)    Compute radiometric indices
-      speed (sp)          Compute speed of rasters
-      svf                 Compute Sky View Factor of a Digital Height Model
-      hillshade (hs)      Compute hillshades of a Digital Height Model
-      zonalstats (zs)     Compute zonal statistics
-      tiling (ti)         Generate image tiles
+  $ rio georastertools --help
+  Usage: rio georastertools [OPTIONS] COMMAND [ARGS]...
+
+  Main entry point for the `georastertools` Command Line Interface.
+
+  The `georastertools` CLI provides tools for raster processing and analysis
+  and allows configurable data handling, parallel processing, and debugging
+  support.
+
+  Logging:
+
+      - INFO level (`-v`) gives detailed step information.
+
+      - DEBUG level (`-vv`) offers full debug-level tracing.
+
+  Environment Variables:
+
+      - `RASTERTOOLS_NOTQDM`: If the log level is above INFO, sets this to
+      disable progress bars.
+
+      - `RASTERTOOLS_MAXWORKERS`: If `max_workers` is set, it defines the max
+      workers for georastertools.
+
+    Options:
+      -t, --rastertype PATH  JSON file defining additional raster types of input
+                             files
+      --max_workers INTEGER  Maximum number of workers for parallel processing. If
+                             not given, it will default to the number of
+                             processors on the machine. When all processors are
+                             not allocated to run georastertools, it is thus
+                             recommended to set this option.
+      --debug                Store to disk the intermediate VRT images that are
+                             generated when handling the input files which can be
+                             complex raster product composed of several band
+                             files.
+      -v, --verbose          set loglevel to INFO
+      -vv, --very-verbose    set loglevel to DEBUG
+      --version              Show the version and exit.
+      -h, --help             Show this message and exit.
+
+    Commands:
+      fi           Apply a filter to a set of images.
+      filter       Apply a filter to a set of images.
+      hillshade    Execute the hillshade subcommand on a Digital Height Model...
+      hs           Execute the hillshade subcommand on a Digital Height Model...
+      radioindice  Compute the requested radio indices on raster data.
+      ri           Compute the requested radio indices on raster data.
+      sp           Compute the speed of radiometric values for multiple...
+      speed        Compute the speed of radiometric values for multiple...
+      svf          Compute the Sky View Factor (SVF) of a Digital Height...
+      ti           Generate tiles of an input raster image following the...
+      tiling       Generate tiles of an input raster image following the...
+      timeseries   Generate a timeseries of images (without gaps) from a set...
+      ts           Generate a timeseries of images (without gaps) from a set...
+      zonalstats   Compute zonal statistics of a raster image.
+      zs           Compute zonal statistics of a raster image.
 
 Calling georastertools returns the following exit codes:
 
@@ -105,27 +114,11 @@ Calling georastertools returns the following exit codes:
 
 Details of the various subcommands are presented in the documentation : `Usage <docs/cli.rst>`_
 
-
-Tests & documentation
-=====================
-
-To run tests and generate documentation, the following dependencies must be installed in the conda environment. :
-
-- py.test et pytest-cov (tests execution)
-- sphinx (documentation generation)
-
-Pour cela, exécuter la commande suivante :
-
-.. code-block:: console
-
-  conda env update -f env_test.yml
-
-
 Tests
 ^^^^^
 
 The project comes with a suite of unit and functional tests. To run them, 
-launch the command ``pytest tests``. To run specific tests, execute ``pytest tests -k "<nom_du_test>"``.
+launch the command ``pytest tests``. To run specific tests, execute ``pytest tests -k "<test_name>"``.
 
 The tests may perform comparisons between generated files and reference files. 
 In this case, the tests depend on the numerical precision of the platforms. 

@@ -12,20 +12,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Setup Python 3.9
+    - name: Setup Python 3.8.13
       uses: actions/setup-python@v3
       with:
-        python-version: "3.9"
+        python-version: "3.8.13"
     - name: Setup Miniconda
       uses: conda-incubator/setup-miniconda@v2
       with:
-        python-version: 3.9
+        python-version: 3.8.13
         auto-activate-base: false
     - name: Install and test
       shell: bash -l {0}
       run: |
         echo "test"
-        #conda create -n test_env python=3.9 libgdal=3.5.2 -c conda-forge -c defaults -y
+        #conda create -n test_env python=3.8.13 libgdal=3.5.2 -c conda-forge -c defaults -y
         #conda activate test_env
         #PIP_NO_BINARY=rasterio pip install .
         #pytest --compare
@@ -39,19 +39,19 @@ jobs:
       url: https://test.pypi.org/p/georastertools
     steps:
     - uses: actions/checkout@v4
-    - name: Setup Python 3.9
+    - name: Setup Python 3.8.13
       uses: actions/setup-python@v3
       with:
-        python-version: "3.9"
+        python-version: "3.8.13"
     - name: Setup Miniconda
       uses: conda-incubator/setup-miniconda@v2
       with:
-        python-version: 3.9
+        python-version: 3.8.13
         auto-activate-base: false
     - name: Build package
       shell: bash -l {0}
       run: |
-        conda create -n deploy_env python=3.9 libgdal=3.5.2 build twine -c conda-forge -y
+        conda create -n deploy_env python=3.8.13 libgdal=3.5.2 build twine -c conda-forge -y
         conda activate deploy_env
         python -m build --wheel
     - name: Publish package
