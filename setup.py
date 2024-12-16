@@ -3,16 +3,19 @@ from setuptools import setup, find_packages
 
 if __name__ == "__main__":
     try:
+        with open("README.rst", "r", encoding="utf-8") as fh:
+            long_description = fh.read()
+
         setup(name='georastertools',
-              version="0.1.2",
+              version="0.1.3",
               description="Collection of tools for raster data",
-              long_description="Compute radiometric indices and zonal statistics on rasters",
+              long_description=long_description,
               long_description_content_type="text/x-rst",
               classifiers=[],
               keywords='',
               author=u"Olivier Queyrut",
               author_email="",
-              url="https://github.com/CNES/georastertools",
+              url="https://github.com/CNES/rastertools",
               packages=find_packages(exclude=['tests']),
               include_package_data=True,
               zip_safe=False,
