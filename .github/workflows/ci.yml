@@ -32,15 +32,13 @@ jobs:
       shell: bash -l {0}
       run: |
         conda activate test_env
-        pylint --disable=all --enable=too-many-statements src/eolab/georastertools/
-        pylint --disable=all --enable=too-many-nested-blocks src/eolab/georastertools/
+        pylint --disable=all --fail-under=10 --enable=too-many-statements src/eolab/georastertools/
+        pylint --disable=all --fail-under=10 --enable=too-many-nested-blocks src/eolab/georastertools/
+        radon cc -s src/eolab/georastertools | awk '$1 ~ /^[A-Z]+/ && $2 > 25 { exit 1 }'
     - name: test
       shell: bash -l {0}
       run: |
-        echo "test"
-        #conda create -n test_env python=3.8.13 libgdal=3.5.2 -c conda-forge -c defaults -y
-        #conda activate test_env
-        
+        conda activate test_env
         pytest --compare
   deploy:
     needs: test
