@@ -45,11 +45,11 @@ jobs:
     - name: Deploy to PyPI
       shell: bash -l {0}
       env:
-        TWINE_USERNAME: ${{ secrets.TEST_PYPI_USERNAME }}
+        # TWINE_USERNAME: ${{ secrets.TEST_PYPI_USERNAME }}
+        TWINE_USERNAME: __token__
         TWINE_PASSWORD: ${{ secrets.TEST_PYPI_PASSWORD }}
       run: |
         conda create -n deploy_env python=3.8.13 libgdal=3.5.2 build twine -c conda-forge -y
         conda activate deploy_env
         python -m build
-        echo "test 4"
         twine upload --repository testpypi dist/* --verbose
