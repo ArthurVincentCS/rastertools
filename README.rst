@@ -6,6 +6,8 @@ This project provides a command line named **georastertools** that enables vario
 
 
 - the calculation of radiometric indices on satellite images
+- the calculation of the Compute the Sky View Factor (SVF) of a Digital Height Model (DHM).
+- the calculation of the hillshades of a Digital Elevation / Surface / Height Model
 - the calculation of the speed of evolution of radiometry from images between two dates
 - the calculation of zonal statistics of the bands of a raster, that is to say statistics such as min, max, average, etc.
   on subareas (defined by a vector file) of the area of interest.
@@ -35,8 +37,7 @@ Create a conda environment by typing the following:
   conda install python=3.8.13 libgdal
   pip install georastertools --no-binary rasterio
 
-For more details, including installation as a Docker or Singularity image, please refer to the documentation. : `Installation <docs/install.rst>`_
-
+For more details, including installation as a Docker or Singularity image, please refer to the documentation. : docs/install.rst
 
 Usage
 =====
@@ -112,7 +113,7 @@ Calling georastertools returns the following exit codes:
     1: processing error
     2: incorrect invocation parameters
 
-Details of the various subcommands are presented in the documentation : `Usage <docs/cli.rst>`_
+Details of the various subcommands are presented in the documentation : docs/cli.rst
 
 Tests
 ^^^^^
