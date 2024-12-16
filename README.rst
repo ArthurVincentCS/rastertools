@@ -30,8 +30,10 @@ Create a conda environment by typing the following:
 
 .. code-block:: bash
 
-  conda env create -f environment.yml
-  conda env update -f env_update.yml
+  conda env create -n rastertools
+  conda install python=3.8.13 libgdal
+  pip install
+
 
 The following dependencies will be installed in the ``georastertools`` environment:
 

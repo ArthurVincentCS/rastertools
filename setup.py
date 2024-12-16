@@ -7,7 +7,7 @@ if __name__ == "__main__":
             long_description = fh.read()
 
         setup(name='georastertools',
-              version="0.1.3",
+              version="0.1.4",
               description="Collection of tools for raster data",
               long_description=long_description,
               long_description_content_type="text/x-rst",
