@@ -62,7 +62,7 @@ Usage
 =====
 
 georastertools
-^^^^^^^^^^^
+^^^^^^^^^^^^^^
 The georastertools command line is the high-level command for activating the various tools.
 
 .. code-block:: console
