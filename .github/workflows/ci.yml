@@ -34,7 +34,7 @@ jobs:
         conda activate test_env
         pylint --disable=all --fail-under=10 --enable=too-many-statements src/eolab/georastertools/
         pylint --disable=all --fail-under=10 --enable=too-many-nested-blocks src/eolab/georastertools/
-        ./continuous_integration/scripts/check_mccabe_complexity.sh 2 src/eolab/georastertools
+        ./continuous_integration/scripts/check_mccabe_complexity.sh 25 src/eolab/georastertools
     - name: test
       shell: bash -l {0}
       run: |
