@@ -34,7 +34,7 @@ jobs:
         run: |
           conda create -n deploy_env python=3.8.13 libgdal=3.5.2 build -c conda-forge -y
           conda activate deploy_env
-          python -m build -C--global-option=bdist_wheel -C--global-option=--build-number=2 --wheel
+          python -m build -C--global-option=bdist_wheel -C--global-option=--build-number=3 --wheel
 
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@release/v1
