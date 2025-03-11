@@ -1,0 +1,3 @@
+include *.json
+recursive-include eolab/georastertools/product *.json
+recursive-include src/eolab/georastertools/product *.json
