@@ -35,6 +35,7 @@ if __name__ == "__main__":
                   'scipy==1.8',
                   'pyscaffold',
                   'gdal==3.5.0',
+                  'numpy==1.24.4',
                   'tqdm==4.66'
               ],
               entry_points="""
