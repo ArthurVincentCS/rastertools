@@ -27,7 +27,7 @@ if __name__ == "__main__":
                   'pytest-cov',
                   'geopandas==0.13',
                   'kiwisolver==1.4.5',
-                  'matplotlib',
+                  'matplotlib==3.7.3',
                   'packaging==24.1',
                   'fiona==1.8.21',
                   'sphinx_rtd_theme==3.0.1',
