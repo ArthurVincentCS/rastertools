@@ -31,7 +31,6 @@ if __name__ == "__main__":
                   'packaging==24.1',
                   'fiona==1.8.21',
                   'sphinx_rtd_theme==3.0.1',
-                  'pip==24.2',
                   'sphinx==7.1.2',
                   'scipy',
                   'pyscaffold',
